@@ -1,4 +1,4 @@
-c<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
@@ -31,6 +31,41 @@ c<!DOCTYPE html>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- SITE PRELOADER / INITIAL LOADING ANIMATION -->
+  <div class="site-preloader" id="site-preloader" aria-label="Memuat Portofolio Syah Nur Fajri">
+    <div class="preloader-backdrop"></div>
+    <div class="preloader-card">
+      <div class="preloader-scanner-wrap">
+        <div class="preloader-avatar-ring">
+          <img src="profile.jpg" alt="Syah Nur Fajri" class="preloader-avatar">
+          <div class="preloader-scan-beam"></div>
+        </div>
+        <div class="preloader-pulse-rings">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div class="preloader-brand">
+        <span class="logo-bracket">&lt;</span>
+        <span class="logo-text">Syah<span class="highlight">.dev</span></span>
+        <span class="logo-bracket">/&gt;</span>
+      </div>
+
+      <p class="preloader-subtext">Rekayasa Perangkat Lunak &bull; SMK Telkom Lampung</p>
+
+      <!-- Progress bar track -->
+      <div class="preloader-progress-track">
+        <div class="preloader-progress-fill" id="preloader-fill"></div>
+      </div>
+
+      <div class="preloader-meta-row">
+        <span class="preloader-status-text" id="preloader-status">Menginisialisasi modul sistem...</span>
+        <span class="preloader-percentage" id="preloader-percent">0%</span>
+      </div>
+    </div>
+  </div>
+
   <!-- Ambient Sea-Blue Glow Orbs -->
   <div class="ambient-glow glow-top" aria-hidden="true"></div>
   <div class="ambient-glow glow-center" aria-hidden="true"></div>
@@ -183,11 +218,16 @@ c<!DOCTYPE html>
                   <div class="avatar-inner">
                     <img src="profile.jpg" alt="Foto Resmi Syah Nur Fajri" class="avatar-img">
                   </div>
+                  <span class="avatar-online-badge" title="Status: Siswa RPL Aktif - Siap PKL / Proyek"><i class="fa-solid fa-check"></i></span>
                 </div>
                 <div class="avatar-info">
                   <h3 class="avatar-name">SYAH NUR FAJRI</h3>
                   <p class="avatar-role">Junior Web Developer &bull; Siswa RPL</p>
                   <p class="avatar-school"><i class="fa-solid fa-school"></i> SMK Telkom Lampung</p>
+                  <div class="avatar-tags">
+                    <span class="avatar-tag"><i class="fa-solid fa-laptop-code"></i> RPL Telkom</span>
+                    <span class="avatar-tag tag-status"><i class="fa-solid fa-circle-dot"></i> Siap PKL 2026</span>
+                  </div>
                 </div>
               </div>
 
@@ -255,6 +295,41 @@ c<!DOCTYPE html>
         </div>
 
         <div class="about-grid">
+          <!-- About Profile Photo Card (Featured Large Photo) -->
+          <div class="about-profile-card glass-panel">
+            <div class="about-photo-frame">
+              <img src="profile.jpg" alt="Foto Profil Syah Nur Fajri" class="about-portrait-img">
+              <div class="about-photo-gradient"></div>
+              <div class="about-photo-overlay">
+                <span class="photo-badge">
+                  <i class="fa-solid fa-circle-check text-cyan"></i> Siswa RPL Aktif
+                </span>
+              </div>
+            </div>
+            <div class="about-profile-meta">
+              <h3 class="profile-meta-name">SYAH NUR FAJRI</h3>
+              <p class="profile-meta-role">Web Developer &bull; Siswa RPL Telkom</p>
+              <div class="about-quick-specs">
+                <div class="quick-spec-item">
+                  <i class="fa-solid fa-code text-cyan"></i>
+                  <span>Fokus: Frontend &amp; Web Development</span>
+                </div>
+                <div class="quick-spec-item">
+                  <i class="fa-solid fa-graduation-cap text-cyan"></i>
+                  <span>Sekolah: SMK Telkom Lampung</span>
+                </div>
+                <div class="quick-spec-item">
+                  <i class="fa-solid fa-location-dot text-cyan"></i>
+                  <span>Domisili: Lampung, Indonesia</span>
+                </div>
+                <div class="quick-spec-item">
+                  <i class="fa-solid fa-briefcase text-cyan"></i>
+                  <span class="spec-status text-cyan">Terbuka untuk Magang / PKL 2026</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- About Story -->
           <div class="about-story glass-panel">
             <h3 class="story-title">
@@ -1135,6 +1210,135 @@ c<!DOCTYPE html>
 
   <!-- TOAST NOTIFICATION -->
   <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- FLOATING MUSIC PLAYER WIDGET (Ini Abadi & Heaven) -->
+  <aside class="music-player-widget" id="music-player-widget" aria-label="Audio Player Portofolio">
+    <!-- Hidden native audio element -->
+    <audio id="audio-element" preload="metadata"></audio>
+
+    <!-- Compact Floating Pill (Docked) -->
+    <div class="music-pill glass-panel" id="music-pill">
+      <div class="music-pill-disc" id="music-pill-disc">
+        <i class="fa-solid fa-compact-disc"></i>
+      </div>
+      <div class="music-pill-info" id="music-pill-info">
+        <span class="music-pill-title" id="pill-song-title">Ini Abadi</span>
+        <span class="music-pill-artist" id="pill-artist-name">Dendi Nata</span>
+        <div class="sound-wave-bars" id="sound-wave-bars">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+      <button class="music-pill-btn" id="pill-play-btn" title="Putar / Jeda Musik" aria-label="Putar / Jeda Musik">
+        <i class="fa-solid fa-play" id="pill-play-icon"></i>
+      </button>
+      <button class="music-pill-toggle-btn" id="pill-toggle-expand" title="Buka Detail Pemutar" aria-label="Buka Pemutar Musik">
+        <i class="fa-solid fa-chevron-up" id="pill-toggle-icon"></i>
+      </button>
+    </div>
+
+    <!-- Expanded Music Player Card -->
+    <div class="music-card glass-panel" id="music-card" aria-hidden="true">
+      <div class="music-card-header">
+        <div class="music-card-title">
+          <i class="fa-solid fa-headphones text-cyan"></i>
+          <span>Music Player</span>
+          <span class="music-badge">2 Lagu</span>
+        </div>
+        <button class="music-card-close" id="music-card-close" aria-label="Perkecil Pemutar Musik">
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+      </div>
+
+      <div class="music-card-body">
+        <!-- Vinyl Visualizer with Profile Cover -->
+        <div class="music-vinyl-container">
+          <div class="music-vinyl" id="music-vinyl">
+            <div class="vinyl-grooves"></div>
+            <div class="vinyl-center">
+              <img src="profile.jpg" alt="Syah Nur Fajri Album Cover" class="vinyl-cover-img">
+            </div>
+          </div>
+        </div>
+
+        <!-- Track Info -->
+        <div class="music-track-meta">
+          <h4 class="music-track-title" id="player-track-title">Ini Abadi</h4>
+          <p class="music-track-artist" id="player-track-artist">Dendi Nata ft. Hendra Kumbara</p>
+        </div>
+
+        <!-- Progress Bar & Time -->
+        <div class="music-progress-wrap">
+          <div class="music-time-display">
+            <span id="player-current-time">00:00</span>
+            <span id="player-total-duration">--:--</span>
+          </div>
+          <div class="music-progress-bar-container" id="player-progress-container" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+            <div class="music-progress-bar-fill" id="player-progress-fill"></div>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="music-controls">
+          <button class="music-ctrl-btn" id="player-prev-btn" title="Lagu Sebelumnya" aria-label="Lagu Sebelumnya">
+            <i class="fa-solid fa-backward-step"></i>
+          </button>
+          <button class="music-play-main-btn" id="player-main-play-btn" title="Putar Musik" aria-label="Putar Musik">
+            <i class="fa-solid fa-play" id="player-main-play-icon"></i>
+          </button>
+          <button class="music-ctrl-btn" id="player-next-btn" title="Lagu Selanjutnya" aria-label="Lagu Selanjutnya">
+            <i class="fa-solid fa-forward-step"></i>
+          </button>
+          <button class="music-ctrl-btn" id="player-loop-btn" title="Ulangi Lagu (Loop)" aria-label="Ulangi Lagu">
+            <i class="fa-solid fa-repeat"></i>
+          </button>
+        </div>
+
+        <!-- Volume Bar -->
+        <div class="music-volume-row">
+          <button class="music-vol-btn" id="player-vol-btn" aria-label="Mute / Suara">
+            <i class="fa-solid fa-volume-high" id="player-vol-icon"></i>
+          </button>
+          <input type="range" class="music-vol-slider" id="player-vol-slider" min="0" max="1" step="0.05" value="0.8" aria-label="Volume">
+        </div>
+
+        <!-- Playlist Selector -->
+        <div class="music-playlist-section">
+          <div class="playlist-header">
+            <span>Daftar Lagu</span>
+            <label for="custom-song-upload" class="custom-upload-label" title="Pilih File MP3 dari Komputer / HP">
+              <i class="fa-solid fa-file-audio"></i> Pilih MP3
+              <input type="file" id="custom-song-upload" accept="audio/*" class="sr-only">
+            </label>
+          </div>
+          <div class="music-playlist-list">
+            <!-- Track 1: Ini Abadi -->
+            <div class="playlist-item active" data-index="0" id="playlist-item-0" role="button" tabindex="0">
+              <div class="playlist-item-num">1</div>
+              <div class="playlist-item-info">
+                <span class="playlist-item-name">Ini Abadi</span>
+                <span class="playlist-item-sub">Dendi Nata ft. Hendra Kumbara</span>
+              </div>
+              <div class="playlist-item-status">
+                <i class="fa-solid fa-volume-high"></i>
+              </div>
+            </div>
+
+            <!-- Track 2: Heaven -->
+            <div class="playlist-item" data-index="1" id="playlist-item-1" role="button" tabindex="0">
+              <div class="playlist-item-num">2</div>
+              <div class="playlist-item-info">
+                <span class="playlist-item-name">Heaven</span>
+                <span class="playlist-item-sub">Afgan, Isyana &amp; Rendy / Bryan Adams</span>
+              </div>
+              <div class="playlist-item-status">
+                <i class="fa-solid fa-volume-high"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
 
   <!-- BACK TO TOP BUTTON -->
   <button class="back-to-top" id="back-to-top" aria-label="Kembali ke atas">

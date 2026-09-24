@@ -9,6 +9,65 @@
 document.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
+  // --- 0. INITIAL PRELOADER ANIMATION ---
+  const preloader = document.getElementById('site-preloader');
+  const preloaderFill = document.getElementById('preloader-fill');
+  const preloaderPercent = document.getElementById('preloader-percent');
+  const preloaderStatus = document.getElementById('preloader-status');
+
+  let currentProgress = 0;
+  const statusStages = [
+    { threshold: 25, text: 'Menginisialisasi modul antarmuka...' },
+    { threshold: 50, text: 'Memuat profil Syah Nur Fajri...' },
+    { threshold: 75, text: 'Menyiapkan keahlian & proyek RPL...' },
+    { threshold: 92, text: 'Menghubungkan audio lounge...' },
+    { threshold: 100, text: 'Sistem Siap! Selamat Datang.' }
+  ];
+
+  function updatePreloaderStatus(val) {
+    if (!preloaderStatus) return;
+    for (let i = 0; i < statusStages.length; i++) {
+      if (val <= statusStages[i].threshold) {
+        preloaderStatus.textContent = statusStages[i].text;
+        break;
+      }
+    }
+  }
+
+  const preloaderInterval = setInterval(() => {
+    if (currentProgress < 85) {
+      currentProgress += Math.floor(Math.random() * 8) + 4;
+      if (currentProgress > 85) currentProgress = 85;
+      if (preloaderFill) preloaderFill.style.width = `${currentProgress}%`;
+      if (preloaderPercent) preloaderPercent.textContent = `${currentProgress}%`;
+      updatePreloaderStatus(currentProgress);
+    }
+  }, 60);
+
+  function finishPreloader() {
+    clearInterval(preloaderInterval);
+    currentProgress = 100;
+    if (preloaderFill) preloaderFill.style.width = '100%';
+    if (preloaderPercent) preloaderPercent.textContent = '100%';
+    if (preloaderStatus) preloaderStatus.textContent = 'Sistem Siap! Selamat Datang.';
+
+    setTimeout(() => {
+      if (preloader) {
+        preloader.classList.add('fade-out');
+        setTimeout(() => {
+          preloader.style.display = 'none';
+        }, 650);
+      }
+    }, 350);
+  }
+
+  if (document.readyState === 'complete') {
+    finishPreloader();
+  } else {
+    window.addEventListener('load', finishPreloader);
+    setTimeout(finishPreloader, 1800);
+  }
+
   // --- 1. DYNAMIC TYPEWRITER EFFECT ---
   const typewriterElement = document.getElementById('typewriter');
   const words = [
@@ -638,4 +697,356 @@ document.addEventListener('DOMContentLoaded', () => {
       card.style.setProperty('--mouse-y', `${y}px`);
     });
   });
+
+  // --- 13. FLOATING MUSIC PLAYER (Ini Abadi & Heaven) ---
+  const audioElement = document.getElementById('audio-element');
+  const musicWidget = document.getElementById('music-player-widget');
+  const musicPill = document.getElementById('music-pill');
+  const musicCard = document.getElementById('music-card');
+  const pillPlayBtn = document.getElementById('pill-play-btn');
+  const pillPlayIcon = document.getElementById('pill-play-icon');
+  const playerMainPlayBtn = document.getElementById('player-main-play-btn');
+  const playerMainPlayIcon = document.getElementById('player-main-play-icon');
+  const pillToggleExpand = document.getElementById('pill-toggle-expand');
+  const musicCardClose = document.getElementById('music-card-close');
+  const musicPillInfo = document.getElementById('music-pill-info');
+
+  const playerPrevBtn = document.getElementById('player-prev-btn');
+  const playerNextBtn = document.getElementById('player-next-btn');
+  const playerLoopBtn = document.getElementById('player-loop-btn');
+
+  const pillSongTitle = document.getElementById('pill-song-title');
+  const pillArtistName = document.getElementById('pill-artist-name');
+  const playerTrackTitle = document.getElementById('player-track-title');
+  const playerTrackArtist = document.getElementById('player-track-artist');
+
+  const playerCurrentTime = document.getElementById('player-current-time');
+  const playerTotalDuration = document.getElementById('player-total-duration');
+  const playerProgressContainer = document.getElementById('player-progress-container');
+  const playerProgressFill = document.getElementById('player-progress-fill');
+
+  const playerVolSlider = document.getElementById('player-vol-slider');
+  const playerVolBtn = document.getElementById('player-vol-btn');
+  const playerVolIcon = document.getElementById('player-vol-icon');
+  const customSongUpload = document.getElementById('custom-song-upload');
+
+  const playlist = [
+    {
+      title: 'Ini Abadi',
+      artist: 'Dendi Nata ft. Hendra Kumbara',
+      src: 'songs/abadi.mp3',
+      fallbackSrc: 'https://raw.githubusercontent.com/rafaelreis-hotmart/Audio-Sample-files/master/sample.mp3'
+    },
+    {
+      title: 'Heaven',
+      artist: 'Afgan, Isyana & Rendy / Bryan Adams',
+      src: 'songs/heaven.mp3',
+      fallbackSrc: 'https://raw.githubusercontent.com/rafaelreis-hotmart/Audio-Sample-files/master/sample2.mp3'
+    }
+  ];
+
+  let currentTrackIndex = 0;
+  let isPlaying = false;
+  let isLooping = false;
+  let previousVolume = 0.8;
+
+  function formatTime(seconds) {
+    if (isNaN(seconds) || seconds < 0) return '00:00';
+    const min = Math.floor(seconds / 60);
+    const sec = Math.floor(seconds % 60);
+    return `${min < 10 ? '0' : ''}${min}:${sec < 10 ? '0' : ''}${sec}`;
+  }
+
+  function getPlaylistItems() {
+    return document.querySelectorAll('.playlist-item');
+  }
+
+  function loadTrack(index, shouldPlay = false) {
+    if (index < 0 || index >= playlist.length) return;
+    currentTrackIndex = index;
+    const track = playlist[index];
+
+    if (pillSongTitle) pillSongTitle.textContent = track.title;
+    if (pillArtistName) pillArtistName.textContent = track.artist;
+    if (playerTrackTitle) playerTrackTitle.textContent = track.title;
+    if (playerTrackArtist) playerTrackArtist.textContent = track.artist;
+
+    getPlaylistItems().forEach((item, idx) => {
+      if (idx === index) {
+        item.classList.add('active');
+      } else {
+        item.classList.remove('active');
+      }
+    });
+
+    if (audioElement) {
+      audioElement.src = track.src;
+      audioElement.load();
+      if (shouldPlay) {
+        playTrack();
+      }
+    }
+  }
+
+  function playTrack() {
+    if (!audioElement) return;
+    const playPromise = audioElement.play();
+    if (playPromise !== undefined) {
+      playPromise
+        .then(() => {
+          isPlaying = true;
+          updatePlayUI(true);
+        })
+        .catch(err => {
+          console.warn('Playback error on initial source, attempting fallback:', err);
+          const currentTrack = playlist[currentTrackIndex];
+          if (currentTrack && currentTrack.fallbackSrc && audioElement.src !== currentTrack.fallbackSrc) {
+            audioElement.src = currentTrack.fallbackSrc;
+            audioElement.play().then(() => {
+              isPlaying = true;
+              updatePlayUI(true);
+            }).catch(e => console.error('Audio play prevented:', e));
+          }
+        });
+    }
+  }
+
+  function pauseTrack() {
+    if (!audioElement) return;
+    audioElement.pause();
+    isPlaying = false;
+    updatePlayUI(false);
+  }
+
+  function togglePlay() {
+    if (isPlaying) {
+      pauseTrack();
+    } else {
+      playTrack();
+      showToast(`🎵 Memutar: ${playlist[currentTrackIndex].title}`, 'info', 3000);
+    }
+  }
+
+  function updatePlayUI(playing) {
+    if (playing) {
+      musicWidget?.classList.add('is-playing');
+      pillPlayIcon?.setAttribute('class', 'fa-solid fa-pause');
+      playerMainPlayIcon?.setAttribute('class', 'fa-solid fa-pause');
+      pillPlayBtn?.setAttribute('aria-label', 'Jeda Musik');
+      playerMainPlayBtn?.setAttribute('aria-label', 'Jeda Musik');
+    } else {
+      musicWidget?.classList.remove('is-playing');
+      pillPlayIcon?.setAttribute('class', 'fa-solid fa-play');
+      playerMainPlayIcon?.setAttribute('class', 'fa-solid fa-play');
+      pillPlayBtn?.setAttribute('aria-label', 'Putar Musik');
+      playerMainPlayBtn?.setAttribute('aria-label', 'Putar Musik');
+    }
+  }
+
+  function nextTrack() {
+    const nextIndex = (currentTrackIndex + 1) % playlist.length;
+    loadTrack(nextIndex, isPlaying);
+    showToast(`🎵 Lagu: ${playlist[nextIndex].title}`, 'info', 2500);
+  }
+
+  function prevTrack() {
+    if (audioElement && audioElement.currentTime > 3) {
+      audioElement.currentTime = 0;
+      return;
+    }
+    const prevIndex = (currentTrackIndex - 1 + playlist.length) % playlist.length;
+    loadTrack(prevIndex, isPlaying);
+    showToast(`🎵 Lagu: ${playlist[prevIndex].title}`, 'info', 2500);
+  }
+
+  // Audio Event Listeners
+  if (audioElement) {
+    audioElement.volume = 0.8;
+
+    audioElement.addEventListener('timeupdate', () => {
+      if (!isNaN(audioElement.duration) && audioElement.duration > 0) {
+        const percent = (audioElement.currentTime / audioElement.duration) * 100;
+        if (playerProgressFill) playerProgressFill.style.width = `${percent}%`;
+        if (playerCurrentTime) playerCurrentTime.textContent = formatTime(audioElement.currentTime);
+        if (playerProgressContainer) playerProgressContainer.setAttribute('aria-valuenow', Math.round(percent));
+      }
+    });
+
+    audioElement.addEventListener('loadedmetadata', () => {
+      if (playerTotalDuration && !isNaN(audioElement.duration)) {
+        playerTotalDuration.textContent = formatTime(audioElement.duration);
+      }
+    });
+
+    audioElement.addEventListener('ended', () => {
+      if (isLooping) {
+        audioElement.currentTime = 0;
+        audioElement.play();
+      } else {
+        nextTrack();
+      }
+    });
+
+    audioElement.addEventListener('error', () => {
+      console.warn('Audio error on current source, attempting fallback...');
+      const track = playlist[currentTrackIndex];
+      if (track && track.fallbackSrc && audioElement.src !== track.fallbackSrc) {
+        audioElement.src = track.fallbackSrc;
+        if (isPlaying) audioElement.play().catch(() => {});
+      }
+    });
+  }
+
+  // Button Listeners
+  pillPlayBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    togglePlay();
+  });
+
+  playerMainPlayBtn?.addEventListener('click', togglePlay);
+
+  playerNextBtn?.addEventListener('click', nextTrack);
+  playerPrevBtn?.addEventListener('click', prevTrack);
+
+  playerLoopBtn?.addEventListener('click', () => {
+    isLooping = !isLooping;
+    playerLoopBtn.classList.toggle('active', isLooping);
+    showToast(isLooping ? '🔁 Mode Ulang: Aktif' : '➡️ Mode Ulang: Nonaktif', 'info', 2000);
+  });
+
+  // Expand / Minimize Widget
+  function openMusicCard() {
+    musicWidget?.classList.add('expanded');
+    musicCard?.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeMusicCard() {
+    musicWidget?.classList.remove('expanded');
+    musicCard?.setAttribute('aria-hidden', 'true');
+  }
+
+  pillToggleExpand?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (musicWidget?.classList.contains('expanded')) {
+      closeMusicCard();
+    } else {
+      openMusicCard();
+    }
+  });
+
+  musicPillInfo?.addEventListener('click', () => {
+    if (!musicWidget?.classList.contains('expanded')) {
+      openMusicCard();
+    }
+  });
+
+  musicCardClose?.addEventListener('click', closeMusicCard);
+
+  // Progress Bar Seek
+  playerProgressContainer?.addEventListener('click', (e) => {
+    if (!audioElement || isNaN(audioElement.duration)) return;
+    const rect = playerProgressContainer.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    const width = rect.width;
+    const seekTime = (clickX / width) * audioElement.duration;
+    audioElement.currentTime = seekTime;
+  });
+
+  // Volume Control
+  playerVolSlider?.addEventListener('input', (e) => {
+    if (!audioElement) return;
+    const vol = parseFloat(e.target.value);
+    audioElement.volume = vol;
+    updateVolIcon(vol);
+  });
+
+  function updateVolIcon(vol) {
+    if (!playerVolIcon) return;
+    if (vol === 0) {
+      playerVolIcon.setAttribute('class', 'fa-solid fa-volume-xmark');
+    } else if (vol < 0.5) {
+      playerVolIcon.setAttribute('class', 'fa-solid fa-volume-low');
+    } else {
+      playerVolIcon.setAttribute('class', 'fa-solid fa-volume-high');
+    }
+  }
+
+  playerVolBtn?.addEventListener('click', () => {
+    if (!audioElement) return;
+    if (audioElement.volume > 0) {
+      previousVolume = audioElement.volume;
+      audioElement.volume = 0;
+      if (playerVolSlider) playerVolSlider.value = 0;
+      updateVolIcon(0);
+    } else {
+      audioElement.volume = previousVolume || 0.8;
+      if (playerVolSlider) playerVolSlider.value = audioElement.volume;
+      updateVolIcon(audioElement.volume);
+    }
+  });
+
+  // Playlist Items Click Listener
+  function attachPlaylistListeners() {
+    getPlaylistItems().forEach((item) => {
+      item.onclick = () => {
+        const idx = parseInt(item.getAttribute('data-index'), 10);
+        if (!isNaN(idx) && idx !== currentTrackIndex) {
+          loadTrack(idx, true);
+          showToast(`🎵 Memutar: ${playlist[idx].title}`, 'info', 2500);
+        } else if (idx === currentTrackIndex) {
+          togglePlay();
+        }
+      };
+
+      item.onkeydown = (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          item.click();
+        }
+      };
+    });
+  }
+
+  attachPlaylistListeners();
+
+  // Custom Local File Upload
+  customSongUpload?.addEventListener('change', (e) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const fileUrl = URL.createObjectURL(file);
+      const cleanName = file.name.replace(/\.[^/.]+$/, '');
+      const newTrack = {
+        title: cleanName,
+        artist: 'File Audio Anda',
+        src: fileUrl
+      };
+      playlist.push(newTrack);
+
+      const listContainer = document.querySelector('.music-playlist-list');
+      if (listContainer) {
+        const newIdx = playlist.length - 1;
+        const newItem = document.createElement('div');
+        newItem.className = 'playlist-item';
+        newItem.setAttribute('data-index', newIdx);
+        newItem.setAttribute('role', 'button');
+        newItem.setAttribute('tabindex', '0');
+        newItem.innerHTML = `
+          <div class="playlist-item-num">${newIdx + 1}</div>
+          <div class="playlist-item-info">
+            <span class="playlist-item-name">${cleanName}</span>
+            <span class="playlist-item-sub">File Lokal Anda</span>
+          </div>
+          <div class="playlist-item-status"><i class="fa-solid fa-volume-high"></i></div>
+        `;
+        listContainer.appendChild(newItem);
+        attachPlaylistListeners();
+      }
+
+      loadTrack(playlist.length - 1, true);
+      showToast(`🎵 Memutar file kustom: ${cleanName}`, 'success', 4000);
+    }
+  });
+
+  // Initialize First Track (Ini Abadi) ready to play
+  loadTrack(0, false);
 });
