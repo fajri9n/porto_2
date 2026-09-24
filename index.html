@@ -1,0 +1,1147 @@
+c<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SYAH NUR FAJRI | Web Developer - Siswa RPL SMK Telkom Lampung</title>
+  
+  <!-- SEO & Meta Tags -->
+  <meta name="description" content="Portofolio resmi Syah Nur Fajri, Web Developer dan siswa jurusan Rekayasa Perangkat Lunak (RPL) di SMK Telkom Lampung. Menampilkan proyek web modern, skill teknologi, dan pengalaman kejuruan.">
+  <meta name="keywords" content="Syah Nur Fajri, Web Developer, SMK Telkom Lampung, Rekayasa Perangkat Lunak, RPL, Portofolio Siswa, Frontend Developer, Backend Developer, Lampung">
+  <meta name="author" content="Syah Nur Fajri">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="SYAH NUR FAJRI | Web Developer - RPL SMK Telkom Lampung">
+  <meta property="og:description" content="Portofolio Web Developer bertema Sea-Blue modern oleh Syah Nur Fajri, siswa Rekayasa Perangkat Lunak SMK Telkom Lampung.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&auto=format&fit=crop&q=80">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%22 fill=%22none%22><circle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%230b1528%22 stroke=%22%2300f2fe%22 stroke-width=%225%22/><text x=%2250%22 y=%2258%22 font-size=%2232%22 font-family=%22sans-serif%22 font-weight=%22bold%22 fill=%22%2300f2fe%22 text-anchor=%22middle%22>SNF</text></svg>">
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Sea-Blue Glow Orbs -->
+  <div class="ambient-glow glow-top" aria-hidden="true"></div>
+  <div class="ambient-glow glow-center" aria-hidden="true"></div>
+  <div class="ambient-glow glow-bottom" aria-hidden="true"></div>
+
+  <!-- Interactive Grid Background Overlay -->
+  <div class="grid-overlay" aria-hidden="true"></div>
+
+  <!-- Header / Navigation -->
+  <header class="navbar-wrapper" id="main-header">
+    <nav class="navbar container" aria-label="Main Navigation">
+      <a href="#hero" class="brand-logo" aria-label="Syah Nur Fajri Beranda">
+        <span class="logo-bracket">&lt;</span>
+        <span class="logo-text">Syah<span class="highlight">.dev</span></span>
+        <span class="logo-bracket">/&gt;</span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <ul class="nav-menu" id="nav-menu">
+        <li class="nav-item"><a href="#hero" class="nav-link active">Beranda</a></li>
+        <li class="nav-item"><a href="#about" class="nav-link">Tentang</a></li>
+        <li class="nav-item"><a href="#skills" class="nav-link">Keahlian</a></li>
+        <li class="nav-item"><a href="#projects" class="nav-link">Proyek</a></li>
+        <li class="nav-item"><a href="#education" class="nav-link">Pendidikan</a></li>
+        <li class="nav-item"><a href="#contact" class="nav-link">Kontak</a></li>
+      </ul>
+
+      <!-- Action Button & Mobile Toggle -->
+      <div class="nav-actions">
+        <a href="#contact" class="btn btn-outline btn-sm nav-cta">
+          <i class="fa-solid fa-paper-plane"></i>
+          <span>Hubungi Saya</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Buka menu navigasi" aria-expanded="false">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Drawer Backdrop & Menu -->
+  <div class="mobile-drawer-backdrop" id="drawer-backdrop" aria-hidden="true"></div>
+  <aside class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation">
+    <div class="drawer-header">
+      <div class="brand-logo">
+        <span class="logo-bracket">&lt;</span>
+        <span class="logo-text">Syah<span class="highlight">.dev</span></span>
+        <span class="logo-bracket">/&gt;</span>
+      </div>
+      <button class="drawer-close" id="drawer-close" aria-label="Tutup menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <ul class="drawer-links">
+      <li><a href="#hero" class="drawer-link"><i class="fa-solid fa-house"></i> Beranda</a></li>
+      <li><a href="#about" class="drawer-link"><i class="fa-solid fa-user"></i> Tentang</a></li>
+      <li><a href="#skills" class="drawer-link"><i class="fa-solid fa-code"></i> Keahlian</a></li>
+      <li><a href="#projects" class="drawer-link"><i class="fa-solid fa-laptop-code"></i> Proyek RPL</a></li>
+      <li><a href="#education" class="drawer-link"><i class="fa-solid fa-graduation-cap"></i> Pendidikan</a></li>
+      <li><a href="#contact" class="drawer-link"><i class="fa-solid fa-envelope"></i> Kontak</a></li>
+    </ul>
+    <div class="drawer-footer">
+      <p class="drawer-status"><span class="status-dot"></span> Siswa RPL SMK Telkom Lampung</p>
+      <a href="#contact" class="btn btn-primary btn-block">Hubungi Sekarang</a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-container">
+        <!-- Hero Text Content -->
+        <div class="hero-content">
+          <div class="badge-status">
+            <span class="pulse-dot"></span>
+            <span>Siswa RPL SMK Telkom Lampung &bull; Siap Magang / PKL</span>
+          </div>
+
+          <h1 class="hero-title">
+            <span class="greeting">Halo, Saya</span>
+            <span class="name-gradient">SYAH NUR FAJRI</span>
+          </h1>
+
+          <div class="typewriter-container">
+            <span class="typewriter-prefix">Spesialisasi: </span>
+            <span class="typewriter-text" id="typewriter"></span>
+            <span class="typewriter-cursor">|</span>
+          </div>
+
+          <p class="hero-description">
+            Siswa jurusan <strong>Rekayasa Perangkat Lunak (RPL) di SMK Telkom Lampung</strong> dengan dedikasi tinggi dalam merancang dan mengembangkan website modern, responsif, dan interaktif. Berpengalaman dalam slicing UI modern, pemrograman frontend, hingga dasar integrasi database backend.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#projects" class="btn btn-primary">
+              <i class="fa-solid fa-rocket"></i>
+              <span>Eksplor Proyek RPL</span>
+            </a>
+            <a href="#contact" class="btn btn-secondary">
+              <i class="fa-solid fa-comments"></i>
+              <span>Hubungi Saya</span>
+            </a>
+            <button class="btn btn-ghost" id="copy-email-btn" title="Salin Email">
+              <i class="fa-regular fa-copy"></i>
+              <span>Salin Email</span>
+            </button>
+          </div>
+
+          <!-- Quick Social & Info Badges -->
+          <div class="hero-social-row">
+            <span class="social-label">Terhubung:</span>
+            <div class="social-links">
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub Profile">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn Profile">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram Profile">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href="mailto:syahnurfajri.rpl@gmail.com" class="social-icon" aria-label="Email Langsung">
+                <i class="fa-solid fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual / Tech Showcase Card -->
+        <div class="hero-visual">
+          <div class="hero-card-glow"></div>
+          <div class="dev-card glass-panel">
+            <div class="dev-card-header">
+              <div class="window-buttons">
+                <span class="win-btn red"></span>
+                <span class="win-btn yellow"></span>
+                <span class="win-btn green"></span>
+              </div>
+              <div class="card-filename">
+                <i class="fa-solid fa-code"></i> SyahNurFajri.dev.json
+              </div>
+              <div class="card-badge">RPL-Active</div>
+            </div>
+
+            <div class="dev-card-body">
+              <div class="avatar-wrapper">
+                <div class="avatar-ring">
+                  <div class="avatar-inner">
+                    <img src="profile.jpg" alt="Foto Resmi Syah Nur Fajri" class="avatar-img">
+                  </div>
+                </div>
+                <div class="avatar-info">
+                  <h3 class="avatar-name">SYAH NUR FAJRI</h3>
+                  <p class="avatar-role">Junior Web Developer &bull; Siswa RPL</p>
+                  <p class="avatar-school"><i class="fa-solid fa-school"></i> SMK Telkom Lampung</p>
+                </div>
+              </div>
+
+              <!-- Terminal / Code Snippet Preview -->
+              <div class="code-terminal">
+                <div class="code-line"><span class="c-key">"status"</span>: <span class="c-str">"Pelajar Aktif Jurusan RPL"</span>,</div>
+                <div class="code-line"><span class="c-key">"sekolah"</span>: <span class="c-str">"SMK Telkom Lampung"</span>,</div>
+                <div class="code-line"><span class="c-key">"focus"</span>: [<span class="c-str">"HTML5"</span>, <span class="c-str">"CSS3"</span>, <span class="c-str">"JavaScript"</span>, <span class="c-str">"PHP"</span>],</div>
+                <div class="code-line"><span class="c-key">"passion"</span>: <span class="c-str">"Membangun Web Berdampak Nyata"</span>,</div>
+                <div class="code-line"><span class="c-key">"availableFor"</span>: <span class="c-bool">"PKL & Project 2026"</span></div>
+              </div>
+            </div>
+
+            <!-- Floating Tech Badges -->
+            <div class="floating-badge badge-html" title="HTML5 Semantic"><i class="fa-brands fa-html5"></i> HTML5</div>
+            <div class="floating-badge badge-css" title="Modern CSS3"><i class="fa-brands fa-css3-alt"></i> CSS3</div>
+            <div class="floating-badge badge-js" title="JavaScript ES6+"><i class="fa-brands fa-js"></i> JS ES6+</div>
+            <div class="floating-badge badge-php" title="PHP & MySQL"><i class="fa-brands fa-php"></i> PHP</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KEY STATS COUNTER STRIP -->
+    <section class="stats-section">
+      <div class="container stats-grid">
+        <div class="stat-card glass-panel">
+          <div class="stat-icon"><i class="fa-solid fa-code-commit"></i></div>
+          <div class="stat-content">
+            <h3 class="stat-number" data-target="15">0+</h3>
+            <p class="stat-label">Proyek & Praktik Web</p>
+          </div>
+        </div>
+        <div class="stat-card glass-panel">
+          <div class="stat-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div class="stat-content">
+            <h3 class="stat-number" data-target="100">0%</h3>
+            <p class="stat-label">Fokus Vokasi RPL Telkom</p>
+          </div>
+        </div>
+        <div class="stat-card glass-panel">
+          <div class="stat-icon"><i class="fa-solid fa-clock"></i></div>
+          <div class="stat-content">
+            <h3 class="stat-number" data-target="500">0+</h3>
+            <p class="stat-label">Jam Latihan Koding Mandiri</p>
+          </div>
+        </div>
+        <div class="stat-card glass-panel">
+          <div class="stat-icon"><i class="fa-solid fa-certificate"></i></div>
+          <div class="stat-content">
+            <h3 class="stat-number" data-target="5">0+</h3>
+            <p class="stat-label">Sertifikasi & Penghargaan</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about-section section-padding" id="about">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag"><i class="fa-solid fa-user-astronaut"></i> Profil Diri</span>
+          <h2 class="section-title">Tentang <span class="highlight">Syah Nur Fajri</span></h2>
+          <p class="section-subtitle">Siswa Rekayasa Perangkat Lunak (RPL) SMK Telkom Lampung yang berorientasi pada karya nyata dan solusi digital.</p>
+        </div>
+
+        <div class="about-grid">
+          <!-- About Story -->
+          <div class="about-story glass-panel">
+            <h3 class="story-title">
+              <i class="fa-solid fa-terminal text-cyan"></i> Dedikasi Koding & Pertumbuhan Teknologi
+            </h3>
+            <p>
+              Saya adalah <strong>Syah Nur Fajri</strong>, seorang siswa tingkat kejuruan di <strong>SMK Telkom Lampung</strong> dengan peminatan <strong>Rekayasa Perangkat Lunak (RPL)</strong>. Sejak awal masuk di SMK Telkom Lampung, saya terpesona oleh bagaimana baris kode dapat diubah menjadi aplikasi web interaktif yang menyelesaikan masalah nyata di lingkungan sekolah dan masyarakat.
+            </p>
+            <p>
+              Di bawah kurikulum berstandar industri Telkom Schools, saya ditempa dalam logika algoritma, perancangan basis data relasional, penguasaan standar web modern (HTML, CSS, JavaScript, PHP, MySQL), hingga kerja sama tim menggunakan metodologi Agile & Git.
+            </p>
+            <p>
+              Saya senantiasa terdorong untuk mengasah keterampilan baik secara mandiri (self-taught) maupun lewat penugasan proyek kejuruan, dengan fokus utama pada <em>Clean Code</em>, estetika tampilan (UI/UX), dan performa website yang optimal di berbagai perangkat.
+            </p>
+
+            <div class="about-details-list">
+              <div class="detail-item">
+                <i class="fa-solid fa-id-card-clip"></i>
+                <div>
+                  <span class="detail-label">Nama Lengkap</span>
+                  <strong class="detail-value">SYAH NUR FAJRI</strong>
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fa-solid fa-school-flag"></i>
+                <div>
+                  <span class="detail-label">Asal Sekolah</span>
+                  <strong class="detail-value">SMK Telkom Lampung</strong>
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fa-solid fa-laptop-file"></i>
+                <div>
+                  <span class="detail-label">Kompetensi Keahlian</span>
+                  <strong class="detail-value">Rekayasa Perangkat Lunak (RPL)</strong>
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fa-solid fa-briefcase"></i>
+                <div>
+                  <span class="detail-label">Minat Karir</span>
+                  <strong class="detail-value">Web Developer (Frontend / Fullstack)</strong>
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <div>
+                  <span class="detail-label">Domisili</span>
+                  <strong class="detail-value">Lampung, Indonesia</strong>
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fa-solid fa-circle-check text-green"></i>
+                <div>
+                  <span class="detail-label">Status PKL / Magang</span>
+                  <strong class="detail-value text-cyan">Tersedia & Siap Kerja Sama</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Value Pillars / Why Work With Me -->
+          <div class="about-pillars">
+            <div class="pillar-card glass-panel">
+              <div class="pillar-icon"><i class="fa-solid fa-code"></i></div>
+              <div class="pillar-text">
+                <h4>Struktur Kode Rapi & Standar</h4>
+                <p>Menulis markup semantik HTML5, CSS terorganisir dengan modularitas variabel, dan JavaScript modern yang mudah dibaca serta dipelihara.</p>
+              </div>
+            </div>
+
+            <div class="pillar-card glass-panel">
+              <div class="pillar-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+              <div class="pillar-text">
+                <h4>Responsif & Mobile-First</h4>
+                <p>Memastikan setiap elemen halaman tampil proporsional, cepat, dan nyaman digunakan di ponsel, tablet, maupun layar desktop resolusi tinggi.</p>
+              </div>
+            </div>
+
+            <div class="pillar-card glass-panel">
+              <div class="pillar-icon"><i class="fa-solid fa-database"></i></div>
+              <div class="pillar-text">
+                <h4>Dasar Basis Data & Logika Backend</h4>
+                <p>Mampu merancang skema database MySQL, query CRUD terstruktur, dan komunikasi data via REST API untuk kebutuhan aplikasi web dinamis.</p>
+              </div>
+            </div>
+
+            <div class="pillar-card glass-panel">
+              <div class="pillar-icon"><i class="fa-solid fa-people-group"></i></div>
+              <div class="pillar-text">
+                <h4>Budaya Kerja Telkom & Kolaboratif</h4>
+                <p>Menjunjung nilai profesionalisme, kedisiplinan, adaptasi cepat terhadap teknologi baru, dan kemampuan berkolaborasi dalam tim pengembang.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section class="skills-section section-padding" id="skills">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag"><i class="fa-solid fa-microchip"></i> Teknologi & Keterampilan</span>
+          <h2 class="section-title">Tech Stack & <span class="highlight">Kemampuan Teknis</span></h2>
+          <p class="section-subtitle">Alat, bahasa pemrograman, dan framework yang dipelajari dan diimplementasikan dalam pembelajaran RPL SMK Telkom Lampung.</p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Frontend Development -->
+          <div class="skill-category-card glass-panel">
+            <div class="category-header">
+              <div class="category-icon cyan-gradient">
+                <i class="fa-brands fa-html5"></i>
+              </div>
+              <div>
+                <h3 class="category-title">Frontend Web</h3>
+                <p class="category-desc">Struktur, tata letak, & interaksi antarmuka pengguna</p>
+              </div>
+            </div>
+            <div class="skills-list">
+              <div class="skill-pill">
+                <i class="fa-brands fa-html5 text-orange"></i>
+                <span>HTML5 (Semantic)</span>
+              </div>
+              <div class="skill-pill">
+                <i class="fa-brands fa-css3-alt text-blue"></i>
+                <span>CSS3 (Flexbox/Grid)</span>
+              </div>
+              <div class="skill-pill">
+                <i class="fa-brands fa-js text-yellow"></i>
+                <span>JavaScript (ES6+)</span>
+              </div>
+              <div class="skill-pill">
+                <i class="fa-brands fa-bootstrap text-purple"></i>
+                <span>Bootstrap 5</span>
+              </div>
+              <div class="skill-pill">
+                <i class="fa-solid fa-wind text-teal"></i>
+                <span>Tailwind CSS</span>
+              </div>
+              <div class="skill-pill">
+                <i class="fa-solid fa-wand-magic-sparkles text-cyan"></i>
+                <span>Responsive Design</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Backend & Database -->
+          <div class="skill-category-card glass-panel">
+            <div class="category-header">
+              <div class="category-icon blue-gradient">
+                <i class="fa-solid fa-server"></i>
+              </div>
+              <div>
+                <h3 class="category-title">Backend & Database</h3>
+                <p class="category-desc">Pemrosesan data server & manajemen basis data</p>
+              </div>
+            </div>
+            <div class="skills-list">
+              <div class="skill-pill">
+                <i class="fa-brands fa-php text-indigo"></i>
+                <span>PHP Native</span>
+              </div>
+              <div class="skill-pill">
+                <i class="fa-brands fa-laravel text-red"></i>
+                <span>Laravel Basics</span>
+              </div>
+              <div class="skill-pill">
+                <i class="fa-solid fa-database text-blue"></i>
+                <span>MySQL & MariaDB</span>
+              </div>
+              <div class="skill-pill">
+                <i class="fa-solid fa-arrow-right-arrow-left text-green"></i>
+                <span>RESTful API Integration</span>
+              </div>
+              <div class="skill-pill">
+                <i class="fa-brands fa-node-js text-green"></i>
+                <span>Node.js / Express Fundamentals</span>
+              </div>
+              <div class="skill-pill">
+                <i class="fa-solid fa-shield-halved text-cyan"></i>
+                <span>Session & Form Auth</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Development Tools & Workflow -->
+          <div class="skill-category-card glass-panel">
+            <div class="category-header">
+              <div class="category-icon teal-gradient">
+                <i class="fa-solid fa-toolbox"></i>
+              </div>
+              <div>
+                <h3 class="category-title">Tools & Lingkungan Kerja</h3>
+                <p class="category-desc">Alat kolaborasi, version control, & prototyping</p>
+              </div>
+            </div>
+            <div class="skills-list">
+              <div class="skill-pill">
+                <i class="fa-brands fa-git-alt text-orange"></i>
+                <span>Git & GitHub</span>
+              </div>
+              <div class="skill-pill">
+                <i class="fa-solid fa-code text-blue"></i>
+                <span>Visual Studio Code</span>
+              </div>
+              <div class="skill-pill">
+                <i class="fa-brands fa-figma text-pink"></i>
+                <span>Figma (UI/UX Wireframing)</span>
+              </div>
+              <div class="skill-pill">
+                <i class="fa-solid fa-paper-plane text-orange"></i>
+                <span>Postman (API Testing)</span>
+              </div>
+              <div class="skill-pill">
+                <i class="fa-solid fa-server text-cyan"></i>
+                <span>Laragon / XAMPP</span>
+              </div>
+              <div class="skill-pill">
+                <i class="fa-brands fa-linux text-yellow"></i>
+                <span>Linux & Bash CLI</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- RPL Core & Soft Skills -->
+          <div class="skill-category-card glass-panel">
+            <div class="category-header">
+              <div class="category-icon navy-gradient">
+                <i class="fa-solid fa-brain"></i>
+              </div>
+              <div>
+                <h3 class="category-title">Kompetensi Kejuruan RPL</h3>
+                <p class="category-desc">Prinsip rekayasa perangkat lunak & soft skills</p>
+              </div>
+            </div>
+            <div class="skills-list">
+              <div class="skill-pill">
+                <i class="fa-solid fa-sitemap text-cyan"></i>
+                <span>Algoritma & Logika Pemrograman</span>
+              </div>
+              <div class="skill-pill">
+                <i class="fa-solid fa-cubes text-teal"></i>
+                <span>Object-Oriented Programming (OOP)</span>
+              </div>
+              <div class="skill-pill">
+                <i class="fa-solid fa-diagram-project text-blue"></i>
+                <span>UML & ERD Database Design</span>
+              </div>
+              <div class="skill-pill">
+                <i class="fa-solid fa-users text-green"></i>
+                <span>Agile & Scrum Mentality</span>
+              </div>
+              <div class="skill-pill">
+                <i class="fa-solid fa-bug text-red"></i>
+                <span>Troubleshooting & Debugging</span>
+              </div>
+              <div class="skill-pill">
+                <i class="fa-solid fa-lightbulb text-yellow"></i>
+                <span>Pemecahan Masalah Kritis</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section class="projects-section section-padding" id="projects">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag"><i class="fa-solid fa-folder-open"></i> Karya & Portofolio Siswa</span>
+          <h2 class="section-title">Koleksi Proyek <span class="highlight">RPL SMK Telkom Lampung</span></h2>
+          <p class="section-subtitle">Daftar proyek web hasil penugasan kelas, eksplorasi mandiri, dan sistem layanan berbasis sekolah.</p>
+        </div>
+
+        <!-- Project Filter Buttons -->
+        <div class="project-filters">
+          <button class="filter-btn active" data-filter="all">Semua Proyek (<span id="count-all">6</span>)</button>
+          <button class="filter-btn" data-filter="fullstack">Fullstack / Web App</button>
+          <button class="filter-btn" data-filter="frontend">Frontend & UI</button>
+          <button class="filter-btn" data-filter="school">Proyek Sekolah Telkom</button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid" id="projects-grid">
+          <!-- Project 1: SIMS Telkom Lampung -->
+          <article class="project-card glass-panel" data-category="fullstack school">
+            <div class="project-thumb">
+              <div class="mockup-screen mockup-sims">
+                <div class="mockup-header">
+                  <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                  <span class="mockup-url">sims.smktelkom-lpg.sch.id</span>
+                </div>
+                <div class="mockup-body">
+                  <div class="mock-sidebar"></div>
+                  <div class="mock-main">
+                    <div class="mock-banner"></div>
+                    <div class="mock-cards-row">
+                      <div class="mock-mini-card"></div>
+                      <div class="mock-mini-card"></div>
+                      <div class="mock-mini-card"></div>
+                    </div>
+                    <div class="mock-table"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="project-badge">Sistem Sekolah</div>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span class="project-year"><i class="fa-regular fa-calendar"></i> 2025</span>
+                <span class="project-type"><i class="fa-solid fa-laptop-code"></i> Fullstack Web</span>
+              </div>
+              <h3 class="project-title">SIMS Telkom - Sistem Informasi Manajemen Sekolah</h3>
+              <p class="project-desc">
+                Portal web akademik terintegrasi untuk manajemen data siswa RPL, jadwal mata pelajaran kejuruan, rekap absensi harian, dan publikasi nilai rapor berbasis web.
+              </p>
+              <div class="project-tech-tags">
+                <span class="tag">PHP</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">Bootstrap 5</span>
+                <span class="tag">JavaScript</span>
+              </div>
+              <div class="project-actions">
+                <button class="btn btn-sm btn-primary open-modal-btn" data-project="sims">
+                  <i class="fa-solid fa-circle-info"></i> Detail Proyek
+                </button>
+                <a href="#contact" class="btn btn-sm btn-ghost">
+                  <i class="fa-brands fa-github"></i> Demo Kode
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2: E-Perpus Telkom -->
+          <article class="project-card glass-panel" data-category="fullstack school">
+            <div class="project-thumb">
+              <div class="mockup-screen mockup-perpus">
+                <div class="mockup-header">
+                  <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                  <span class="mockup-url">eperpus.smktelkom-lampung.sch.id</span>
+                </div>
+                <div class="mockup-body">
+                  <div class="mock-search-bar"></div>
+                  <div class="mock-book-grid">
+                    <div class="mock-book"></div>
+                    <div class="mock-book"></div>
+                    <div class="mock-book"></div>
+                    <div class="mock-book"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="project-badge">Perpustakaan Digital</div>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span class="project-year"><i class="fa-regular fa-calendar"></i> 2025</span>
+                <span class="project-type"><i class="fa-solid fa-book-bookmark"></i> Web App</span>
+              </div>
+              <h3 class="project-title">E-Perpus Telkom - Katalog & Sirkulasi Buku Digital</h3>
+              <p class="project-desc">
+                Aplikasi perpustakaan modern SMK Telkom Lampung untuk katalogisasi koleksi buku pemrograman RPL, peminjaman otomatis menggunakan QR Code, serta reminder tenggat waktu.
+              </p>
+              <div class="project-tech-tags">
+                <span class="tag">PHP MVC</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">QR Code API</span>
+              </div>
+              <div class="project-actions">
+                <button class="btn btn-sm btn-primary open-modal-btn" data-project="perpus">
+                  <i class="fa-solid fa-circle-info"></i> Detail Proyek
+                </button>
+                <a href="#contact" class="btn btn-sm btn-ghost">
+                  <i class="fa-brands fa-github"></i> Demo Kode
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3: Presensi IoT & Web SMK Telkom -->
+          <article class="project-card glass-panel" data-category="fullstack school">
+            <div class="project-thumb">
+              <div class="mockup-screen mockup-presensi">
+                <div class="mockup-header">
+                  <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                  <span class="mockup-url">presensi-iot.telkom-lpg.id</span>
+                </div>
+                <div class="mockup-body">
+                  <div class="mock-stat-badge"></div>
+                  <div class="mock-live-feed">
+                    <div class="feed-row active"></div>
+                    <div class="feed-row"></div>
+                    <div class="feed-row"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="project-badge">IoT + Web Dashboard</div>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span class="project-year"><i class="fa-regular fa-calendar"></i> 2026</span>
+                <span class="project-type"><i class="fa-solid fa-fingerprint"></i> IoT & Web</span>
+              </div>
+              <h3 class="project-title">Portal Presensi Siswa IoT & Dashboard Realtime</h3>
+              <p class="project-desc">
+                Kolaborasi integrasi sensor kartu RFID tap-in siswa dengan web dashboard monitoring kehadiran siswa RPL SMK Telkom Lampung secara real-time untuk guru piket.
+              </p>
+              <div class="project-tech-tags">
+                <span class="tag">JavaScript</span>
+                <span class="tag">REST API</span>
+                <span class="tag">PHP</span>
+                <span class="tag">MySQL</span>
+              </div>
+              <div class="project-actions">
+                <button class="btn btn-sm btn-primary open-modal-btn" data-project="presensi">
+                  <i class="fa-solid fa-circle-info"></i> Detail Proyek
+                </button>
+                <a href="#contact" class="btn btn-sm btn-ghost">
+                  <i class="fa-brands fa-github"></i> Demo Kode
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 4: TapisCraft Lampung -->
+          <article class="project-card glass-panel" data-category="frontend">
+            <div class="project-thumb">
+              <div class="mockup-screen mockup-tapis">
+                <div class="mockup-header">
+                  <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                  <span class="mockup-url">tapis-lampung.store</span>
+                </div>
+                <div class="mockup-body">
+                  <div class="mock-hero-banner"></div>
+                  <div class="mock-product-row">
+                    <div class="mock-prod"></div>
+                    <div class="mock-prod"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="project-badge">UMKM Showcase</div>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span class="project-year"><i class="fa-regular fa-calendar"></i> 2025</span>
+                <span class="project-type"><i class="fa-solid fa-store"></i> E-Commerce Frontend</span>
+              </div>
+              <h3 class="project-title">TapisCraft - Katalog Digital Kerajinan Tapis Lampung</h3>
+              <p class="project-desc">
+                Website showcase dan e-katalog produk kain tapis dan suvenir khas Lampung, dilengkapi fitur filter kerajinan, simulasi keranjang belanja, dan generator pesanan WhatsApp.
+              </p>
+              <div class="project-tech-tags">
+                <span class="tag">HTML5</span>
+                <span class="tag">CSS3 Grid</span>
+                <span class="tag">JavaScript ES6</span>
+                <span class="tag">LocalStorage</span>
+              </div>
+              <div class="project-actions">
+                <button class="btn btn-sm btn-primary open-modal-btn" data-project="tapis">
+                  <i class="fa-solid fa-circle-info"></i> Detail Proyek
+                </button>
+                <a href="#contact" class="btn btn-sm btn-ghost">
+                  <i class="fa-brands fa-github"></i> Demo Kode
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 5: CodeRPL Converter & Quiz -->
+          <article class="project-card glass-panel" data-category="frontend school">
+            <div class="project-thumb">
+              <div class="mockup-screen mockup-coderpl">
+                <div class="mockup-header">
+                  <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                  <span class="mockup-url">coderpl-tools.dev</span>
+                </div>
+                <div class="mockup-body">
+                  <div class="mock-code-box"></div>
+                  <div class="mock-converter-inputs">
+                    <div class="input-line"></div>
+                    <div class="input-line"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="project-badge">Study Tools RPL</div>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span class="project-year"><i class="fa-regular fa-calendar"></i> 2025</span>
+                <span class="project-type"><i class="fa-solid fa-calculator"></i> Web Utility</span>
+              </div>
+              <h3 class="project-title">CodeRPL - Kalkulator Sistem Bilangan & Kuis Algoritma</h3>
+              <p class="project-desc">
+                Aplikasi web edukatif untuk membantu rekan sekelas di jurusan RPL mengonversi basis bilangan (Biner, Desimal, Oktal, Heksadesimal) dan latihan kuis logika pemrograman.
+              </p>
+              <div class="project-tech-tags">
+                <span class="tag">JavaScript ES6</span>
+                <span class="tag">CSS Glassmorphism</span>
+                <span class="tag">HTML5</span>
+                <span class="tag">DOM Engine</span>
+              </div>
+              <div class="project-actions">
+                <button class="btn btn-sm btn-primary open-modal-btn" data-project="coderpl">
+                  <i class="fa-solid fa-circle-info"></i> Detail Proyek
+                </button>
+                <a href="#contact" class="btn btn-sm btn-ghost">
+                  <i class="fa-brands fa-github"></i> Demo Kode
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 6: Sea-Blue Developer Portfolio -->
+          <article class="project-card glass-panel" data-category="frontend">
+            <div class="project-thumb">
+              <div class="mockup-screen mockup-porto">
+                <div class="mockup-header">
+                  <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                  <span class="mockup-url">syahnurfajri.dev</span>
+                </div>
+                <div class="mockup-body">
+                  <div class="mock-nav"></div>
+                  <div class="mock-hero-avatar"></div>
+                  <div class="mock-badges"></div>
+                </div>
+              </div>
+              <div class="project-badge">Portofolio Personal</div>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span class="project-year"><i class="fa-regular fa-calendar"></i> 2026</span>
+                <span class="project-type"><i class="fa-solid fa-id-badge"></i> Portfolio Web</span>
+              </div>
+              <h3 class="project-title">Sea-Blue Developer Portfolio Syah Nur Fajri</h3>
+              <p class="project-desc">
+                Website portofolio pribadi bernuansa deep ocean oceanic blue, dirancang dengan HTML5, Vanilla CSS3, dan JavaScript interaktif dengan performa optimal tanpa framework berat.
+              </p>
+              <div class="project-tech-tags">
+                <span class="tag">Vanilla CSS3</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">HTML5 Semantic</span>
+                <span class="tag">Glassmorphism</span>
+              </div>
+              <div class="project-actions">
+                <button class="btn btn-sm btn-primary open-modal-btn" data-project="porto">
+                  <i class="fa-solid fa-circle-info"></i> Detail Proyek
+                </button>
+                <a href="#hero" class="btn btn-sm btn-ghost">
+                  <i class="fa-solid fa-arrow-up"></i> Lihat Halaman Ini
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION & JOURNEY SECTION -->
+    <section class="education-section section-padding" id="education">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag"><i class="fa-solid fa-timeline"></i> Riwayat & Jejak Belajar</span>
+          <h2 class="section-title">Pendidikan & <span class="highlight">Pengalaman Kejuruan</span></h2>
+          <p class="section-subtitle">Perjalanan akademis dan aktivitas pengembangan diri sebagai siswa RPL di SMK Telkom Lampung.</p>
+        </div>
+
+        <div class="timeline-container">
+          <!-- Timeline Item 1 -->
+          <div class="timeline-item">
+            <div class="timeline-dot">
+              <i class="fa-solid fa-school"></i>
+            </div>
+            <div class="timeline-content glass-panel">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-title">SMK Telkom Lampung</h3>
+                  <p class="timeline-subtitle text-cyan">Jurusan Rekayasa Perangkat Lunak (RPL)</p>
+                </div>
+                <span class="timeline-badge">2024 - Sekarang (Aktif)</span>
+              </div>
+              <p class="timeline-desc">
+                Menempuh pendidikan vokasi teknologi informasi dengan kurikulum berstandar industri Telkom. Menguasai pemrograman dasar, algoritma, rekayasa perangkat lunak, perancangan web responsif, basis data SQL, serta penanaman budaya kerja profesional (AKHLAK).
+              </p>
+              <div class="timeline-tags">
+                <span class="tag">Pemrograman Web</span>
+                <span class="tag">Basis Data MySQL</span>
+                <span class="tag">OOP & Algoritma</span>
+                <span class="tag">Budaya Industri Telkom</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline Item 2 -->
+          <div class="timeline-item">
+            <div class="timeline-dot">
+              <i class="fa-solid fa-laptop-code"></i>
+            </div>
+            <div class="timeline-content glass-panel">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-title">Komunitas IT & Web Dev Siswa RPL</h3>
+                  <p class="timeline-subtitle text-cyan">Anggota Tim Pengembang Web Mandiri</p>
+                </div>
+                <span class="timeline-badge">2024 - Sekarang</span>
+              </div>
+              <p class="timeline-desc">
+                Aktif dalam diskusi teknologi, studi bersama mengenai framework modern, bedah kode (code review), dan kolaborasi perancangan antarmuka proyek sekolah bersama rekan siswa satu angkatan di SMK Telkom Lampung.
+              </p>
+              <div class="timeline-tags">
+                <span class="tag">Team Collaboration</span>
+                <span class="tag">Peer Code Review</span>
+                <span class="tag">Git Workflow</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline Item 3 -->
+          <div class="timeline-item">
+            <div class="timeline-dot">
+              <i class="fa-solid fa-certificate"></i>
+            </div>
+            <div class="timeline-content glass-panel">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-title">Program Pelatihan & Sertifikasi Siswa</h3>
+                  <p class="timeline-subtitle text-cyan">Pengembangan Kompetensi Mandiri & Kejuruan</p>
+                </div>
+                <span class="timeline-badge">2024 - 2025</span>
+              </div>
+              <p class="timeline-desc">
+                Menyelesaikan pelatihan fundamental pemrograman web, sertifikasi dasar JavaScript, dan pembelajaran mandiri seputar slicing responsif serta best practice modern web development.
+              </p>
+              <div class="timeline-tags">
+                <span class="tag">Frontend Foundations</span>
+                <span class="tag">Modern JavaScript</span>
+                <span class="tag">Responsive Web Design</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section section-padding" id="contact">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag"><i class="fa-solid fa-paper-plane"></i> Hubungi Saya</span>
+          <h2 class="section-title">Mari Terhubung & <span class="highlight">Bekerja Sama</span></h2>
+          <p class="section-subtitle">Tertarik merekrut untuk Praktik Kerja Lapangan (PKL), proyek pembuatan website, atau sekadar berdiskusi teknologi? Kirimkan pesan Anda!</p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Contact Information Side -->
+          <div class="contact-info-panel glass-panel">
+            <h3 class="info-panel-title">Informasi Kontak</h3>
+            <p class="info-panel-desc">
+              Saya selalu terbuka untuk mendiskusikan peluang proyek web baru, kesempatan magang/PKL, maupun kolaborasi pengembangan software.
+            </p>
+
+            <div class="info-items-list">
+              <div class="info-item">
+                <div class="info-icon"><i class="fa-solid fa-user-tag"></i></div>
+                <div>
+                  <span class="info-label">Nama</span>
+                  <span class="info-val">SYAH NUR FAJRI</span>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon"><i class="fa-solid fa-school"></i></div>
+                <div>
+                  <span class="info-label">Institusi</span>
+                  <span class="info-val">SMK Telkom Lampung - RPL</span>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+                <div>
+                  <span class="info-label">Email</span>
+                  <a href="mailto:syahnurfajri.rpl@gmail.com" class="info-val info-link">syahnurfajri.rpl@gmail.com</a>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                <div>
+                  <span class="info-label">WhatsApp</span>
+                  <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="info-val info-link">+62 812-xxxx-xxxx</a>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                <div>
+                  <span class="info-label">Lokasi</span>
+                  <span class="info-val">Lampung, Indonesia</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Fast Action Banner -->
+            <div class="fast-action-card">
+              <i class="fa-solid fa-bolt text-yellow"></i>
+              <div>
+                <strong>Respon Cepat</strong>
+                <p>Biasanya merespon dalam waktu kurang dari 24 jam di hari aktif sekolah.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form Side -->
+          <div class="contact-form-panel glass-panel">
+            <h3 class="info-panel-title">Kirim Pesan Langsung</h3>
+            <form id="contact-form" class="contact-form" novalidate>
+              <div class="form-group">
+                <label for="name" class="form-label">Nama Lengkap <span class="required">*</span></label>
+                <div class="input-wrapper">
+                  <i class="fa-solid fa-user input-icon"></i>
+                  <input type="text" id="name" name="name" class="form-input" placeholder="Masukkan nama Anda" required>
+                </div>
+                <span class="form-error" id="name-error"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="email" class="form-label">Alamat Email <span class="required">*</span></label>
+                <div class="input-wrapper">
+                  <i class="fa-solid fa-envelope input-icon"></i>
+                  <input type="email" id="email" name="email" class="form-input" placeholder="contoh@email.com" required>
+                </div>
+                <span class="form-error" id="email-error"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="subject" class="form-label">Subjek / Perihal <span class="required">*</span></label>
+                <div class="input-wrapper">
+                  <i class="fa-solid fa-tag input-icon"></i>
+                  <input type="text" id="subject" name="subject" class="form-input" placeholder="Tawaran PKL / Diskusi Proyek Web" required>
+                </div>
+                <span class="form-error" id="subject-error"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="message" class="form-label">Pesan Anda <span class="required">*</span></label>
+                <div class="input-wrapper textarea-wrapper">
+                  <i class="fa-solid fa-message input-icon textarea-icon"></i>
+                  <textarea id="message" name="message" class="form-input form-textarea" rows="5" placeholder="Tuliskan detail pesan, kebutuhan proyek, atau tawaran Anda di sini..." required></textarea>
+                </div>
+                <span class="form-error" id="message-error"></span>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block" id="submit-btn">
+                <i class="fa-solid fa-paper-plane"></i>
+                <span id="btn-text">Kirim Pesan Sekarang</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <span class="logo-bracket">&lt;</span>
+            <span class="logo-text">Syah<span class="highlight">.dev</span></span>
+            <span class="logo-bracket">/&gt;</span>
+          </div>
+          <p class="footer-tagline">
+            Portofolio Web Developer & Siswa Rekayasa Perangkat Lunak (RPL) SMK Telkom Lampung. Mengubah ide kreatif menjadi website fungsional dan berdaya guna.
+          </p>
+        </div>
+
+        <div class="footer-nav">
+          <h4 class="footer-heading">Navigasi Cepat</h4>
+          <ul class="footer-links">
+            <li><a href="#hero">Beranda</a></li>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#skills">Keahlian</a></li>
+            <li><a href="#projects">Proyek Siswa</a></li>
+            <li><a href="#education">Pendidikan</a></li>
+            <li><a href="#contact">Kontak</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-school">
+          <h4 class="footer-heading">Institusi</h4>
+          <p class="school-name"><strong>SMK Telkom Lampung</strong></p>
+          <p class="school-dept">Kompetensi Keahlian: Rekayasa Perangkat Lunak (RPL)</p>
+          <div class="footer-social-icons">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="mailto:syahnurfajri.rpl@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright">
+          &copy; <span id="current-year">2026</span> <strong>SYAH NUR FAJRI</strong> &bull; Rekayasa Perangkat Lunak SMK Telkom Lampung. Seluruh hak cipta dilindungi.
+        </p>
+        <p class="footer-signature">
+          Dibuat dengan tema <span class="text-cyan">Sea-Blue</span> &bull; Pure HTML, CSS, & JS
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PROJECT DETAIL MODAL DIALOG -->
+  <dialog class="project-modal" id="project-modal" aria-labelledby="modal-title">
+    <div class="modal-dialog glass-panel">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-badge" id="modal-category">Web App</span>
+          <h3 class="modal-title" id="modal-title">Judul Proyek</h3>
+        </div>
+        <button class="modal-close-btn" id="modal-close-btn" aria-label="Tutup Detail Proyek">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-screen-preview" id="modal-preview">
+          <!-- Dynamic Mockup injected via script -->
+        </div>
+
+        <div class="modal-details-grid">
+          <div class="modal-desc-col">
+            <h4 class="modal-subheading">Ringkasan & Latar Belakang</h4>
+            <p id="modal-full-desc" class="modal-desc-text">Deskripsi lengkap proyek siswa...</p>
+
+            <h4 class="modal-subheading">Fitur Utama</h4>
+            <ul id="modal-features-list" class="modal-features-list">
+              <!-- Injected by script -->
+            </ul>
+          </div>
+
+          <div class="modal-meta-col">
+            <div class="modal-meta-box">
+              <span class="meta-label">Institusi / Kelas</span>
+              <strong class="meta-val">RPL SMK Telkom Lampung</strong>
+            </div>
+            <div class="modal-meta-box">
+              <span class="meta-label">Tahun Pembuatan</span>
+              <strong class="meta-val" id="modal-year">2025</strong>
+            </div>
+            <div class="modal-meta-box">
+              <span class="meta-label">Teknologi Digunakan</span>
+              <div class="modal-tech-tags" id="modal-tags">
+                <!-- Injected by script -->
+              </div>
+            </div>
+            <div class="modal-meta-box">
+              <span class="meta-label">Peran Pengembang</span>
+              <strong class="meta-val text-cyan">Fullstack / Web Developer</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="modal-close-action">Tutup</button>
+        <a href="#contact" class="btn btn-primary" id="modal-contact-action">
+          <i class="fa-solid fa-comments"></i> Diskusikan Proyek Serupa
+        </a>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button class="back-to-top" id="back-to-top" aria-label="Kembali ke atas">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>
