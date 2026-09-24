@@ -1049,4 +1049,62 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize First Track (Ini Abadi) ready to play
   loadTrack(0, false);
+
+  // --- 14. AIRPLANE CLICK-TO-RELAUNCH ---
+  const airplaneFlight = document.getElementById('airplane-flight');
+
+  if (airplaneFlight) {
+    airplaneFlight.addEventListener('click', () => {
+      // Reset animation by toggling the class
+      airplaneFlight.style.animation = 'none';
+      void airplaneFlight.offsetWidth; // force reflow
+      airplaneFlight.style.animation = '';
+      showToast('✈️ Pesawat lepas landas kembali!', 'info', 2000);
+    });
+  }
+
+  // --- 15. SCROLL REVEAL ANIMATION ---
+  const revealElements = document.querySelectorAll(
+    '.skill-category-card, .project-card, .timeline-content, .pillar-card, .stat-card, .about-profile-card, .about-story, .contact-info-panel, .contact-form-panel'
+  );
+
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    revealElements.forEach((el, i) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = `opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${i * 0.06}s, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${i * 0.06}s`;
+      revealObserver.observe(el);
+    });
+
+    // Add a style to handle the 'revealed' class
+    const style = document.createElement('style');
+    style.textContent = `.revealed { opacity: 1 !important; transform: translateY(0) !important; }`;
+    document.head.appendChild(style);
+  }
+
+  // --- 16. NAVBAR SCROLLED STATE (Shadow Enhancement) ---
+  const mainHeader = document.getElementById('main-header');
+
+  function updateNavbarOnScroll() {
+    if (!mainHeader) return;
+    if (window.scrollY > 50) {
+      mainHeader.style.borderBottomColor = 'rgba(0, 242, 254, 0.25)';
+      mainHeader.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.4)';
+    } else {
+      mainHeader.style.borderBottomColor = '';
+      mainHeader.style.boxShadow = '';
+    }
+  }
+
+  window.addEventListener('scroll', updateNavbarOnScroll, { passive: true });
+
 });

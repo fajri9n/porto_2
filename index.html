@@ -138,6 +138,58 @@
   <main>
     <!-- HERO SECTION -->
     <section class="hero-section" id="hero">
+      <!-- AIRPLANE FLIGHT ANIMATION OVERLAY (KAPAL TERBANG MEWAH) -->
+      <div class="hero-airspace" id="hero-airspace" aria-hidden="true">
+        <div class="airplane-flight" id="airplane-flight" title="Klik untuk terbangkan kembali">
+          <div class="airplane-body-wrapper">
+            <!-- Sleek Jet Aircraft SVG -->
+            <svg class="airplane-svg" viewBox="0 0 140 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="fuselageGrad" x1="0%" y1="0%" x2="100%" y2="50%">
+                  <stop offset="0%" stop-color="#ffffff"/>
+                  <stop offset="35%" stop-color="#e0f2fe"/>
+                  <stop offset="70%" stop-color="#38bdf8"/>
+                  <stop offset="100%" stop-color="#0284c7"/>
+                </linearGradient>
+                <linearGradient id="wingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#0284c7"/>
+                  <stop offset="60%" stop-color="#38bdf8"/>
+                  <stop offset="100%" stop-color="#f0f9ff"/>
+                </linearGradient>
+                <radialGradient id="jetThrust" cx="0%" cy="50%" r="90%">
+                  <stop offset="0%" stop-color="#ffffff"/>
+                  <stop offset="25%" stop-color="#00f2fe"/>
+                  <stop offset="60%" stop-color="#0284c7"/>
+                  <stop offset="100%" stop-color="transparent"/>
+                </radialGradient>
+              </defs>
+              <!-- Fuselage Streamlined -->
+              <path d="M135 40 C120 36, 85 33, 50 35 L12 37 C6 37, 2 38, 2 40 C2 42, 6 43, 12 43 L50 45 C85 47, 120 44, 135 40 Z" fill="url(#fuselageGrad)" filter="drop-shadow(0 2px 10px rgba(0, 242, 254, 0.5))"/>
+              <!-- Port & Starboard Wings (Swept Wings) -->
+              <path d="M82 38 L38 10 C34 7, 28 9, 31 14 L50 38 Z" fill="url(#wingGrad)"/>
+              <path d="M82 42 L38 70 C34 73, 28 71, 31 66 L50 42 Z" fill="url(#wingGrad)"/>
+              <!-- Vertical Tail Stabilizer -->
+              <path d="M25 38 L8 20 C6 18, 3 19, 4 23 L14 38 Z" fill="#0284c7"/>
+              <path d="M25 42 L8 60 C6 62, 3 61, 4 57 L14 42 Z" fill="#0284c7"/>
+              <!-- Cockpit Window -->
+              <path d="M112 38 Q120 39 118 41 Q108 42 102 40 Z" fill="#0c4a6e" stroke="#00f2fe" stroke-width="0.8"/>
+              <!-- Jet Engine Pods & Exhaust Flares -->
+              <rect x="42" y="27" width="22" height="6" rx="3" fill="#1e293b" stroke="#38bdf8" stroke-width="0.8"/>
+              <rect x="42" y="47" width="22" height="6" rx="3" fill="#1e293b" stroke="#38bdf8" stroke-width="0.8"/>
+              <ellipse cx="40" cy="30" rx="14" ry="4" fill="url(#jetThrust)" class="jet-afterburner"/>
+              <ellipse cx="40" cy="50" rx="14" ry="4" fill="url(#jetThrust)" class="jet-afterburner"/>
+              <!-- Blinking Navigation Lights -->
+              <circle cx="34" cy="11" r="2.5" class="nav-light nav-red"/>
+              <circle cx="34" cy="69" r="2.5" class="nav-light nav-green"/>
+              <circle cx="6" cy="22" r="2.2" class="nav-light nav-white"/>
+            </svg>
+            <!-- Dual Jet Contrails (Asap Jalur Terbang Mewah) -->
+            <div class="airplane-contrail contrail-left"></div>
+            <div class="airplane-contrail contrail-right"></div>
+          </div>
+        </div>
+      </div>
+
       <div class="container hero-container">
         <!-- Hero Text Content -->
         <div class="hero-content">
@@ -214,7 +266,31 @@
 
             <div class="dev-card-body">
               <div class="avatar-wrapper">
-                <div class="avatar-ring">
+                <div class="avatar-ring luxury-fire-ring" id="hero-avatar-ring" title="Api Mewah Cyberpunk &bull; Syah.dev">
+                  <!-- LUXURIOUS FIRE / FLAME AURA ANIMATION -->
+                  <div class="flame-aura-wrapper" aria-hidden="true">
+                    <div class="flame-corona-glow"></div>
+                    <div class="flame-plasma-ring"></div>
+                    <div class="flame-tongues-layer">
+                      <span class="flame-tongue ft-1"></span>
+                      <span class="flame-tongue ft-2"></span>
+                      <span class="flame-tongue ft-3"></span>
+                      <span class="flame-tongue ft-4"></span>
+                      <span class="flame-tongue ft-5"></span>
+                      <span class="flame-tongue ft-6"></span>
+                      <span class="flame-tongue ft-7"></span>
+                      <span class="flame-tongue ft-8"></span>
+                    </div>
+                    <div class="flame-sparks-layer">
+                      <span class="flame-spark fs-1"></span>
+                      <span class="flame-spark fs-2"></span>
+                      <span class="flame-spark fs-3"></span>
+                      <span class="flame-spark fs-4"></span>
+                      <span class="flame-spark fs-5"></span>
+                      <span class="flame-spark fs-6"></span>
+                    </div>
+                  </div>
+
                   <div class="avatar-inner">
                     <img src="profile.jpg" alt="Foto Resmi Syah Nur Fajri" class="avatar-img">
                   </div>
