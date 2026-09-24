@@ -2451,11 +2451,13 @@ main, header, footer, dialog, .toast-container, .back-to-top {
 }
 
 /* --- 17. RESPONSIVE MEDIA QUERIES --- */
+
+/* ── Tablet: ≤ 1024px ─────────────────────────────── */
 @media (max-width: 1024px) {
   .hero-container {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 50px;
+    gap: 44px;
   }
 
   .hero-content {
@@ -2478,10 +2480,14 @@ main, header, footer, dialog, .toast-container, .back-to-top {
   }
 
   .hero-visual {
-    max-width: 520px;
+    max-width: 540px;
     margin: 0 auto;
     width: 100%;
   }
+
+  /* Float badges lebih kecil di tablet */
+  .badge-php { left: -10px; }
+  .badge-css { right: -10px; }
 
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -2493,12 +2499,16 @@ main, header, footer, dialog, .toast-container, .back-to-top {
 
   .about-photo-frame {
     height: 420px;
-    max-width: 360px;
+    max-width: 380px;
     margin: 0 auto;
   }
 
   .about-pillars,
   .about-pillars-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .skills-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -2512,10 +2522,17 @@ main, header, footer, dialog, .toast-container, .back-to-top {
 
   .footer-top {
     grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+
+  .modal-dialog {
+    padding: 24px;
   }
 }
 
+/* ── Mobile: ≤ 768px ──────────────────────────────── */
 @media (max-width: 768px) {
+  /* Navbar */
   .nav-menu, .nav-cta {
     display: none;
   }
@@ -2524,60 +2541,67 @@ main, header, footer, dialog, .toast-container, .back-to-top {
     display: flex;
   }
 
+  .navbar {
+    height: 64px;
+  }
+
+  /* Sections */
   .section-padding {
-    padding-top: 70px;
-    padding-bottom: 70px;
+    padding-top: 64px;
+    padding-bottom: 64px;
   }
 
-  .stats-grid {
-    grid-template-columns: 1fr;
+  .section-title {
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
   }
 
-  .about-photo-frame {
-    height: 350px;
-    max-width: 100%;
+  /* Hero */
+  .hero-section {
+    padding-top: 48px;
+    padding-bottom: 60px;
   }
 
-  .about-pillars,
-  .about-pillars-grid {
-    grid-template-columns: 1fr;
+  .name-gradient {
+    font-size: clamp(2rem, 10vw, 3rem);
   }
 
-  .skills-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .about-details-list {
-    grid-template-columns: 1fr;
-  }
-
-  .modal-details-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-top {
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
-
-  .footer-bottom {
+  .hero-cta-group {
     flex-direction: column;
-    text-align: center;
+    width: 100%;
+    gap: 12px;
   }
 
+  .hero-cta-group .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Hide airplane on mobile (dinonaktifkan agar tidak boros GPU) */
+  .hero-airspace {
+    display: none;
+  }
+
+  /* Float badges sembunyikan di mobile */
+  .floating-badge {
+    display: none;
+  }
+
+  /* Dev card */
+  .dev-card {
+    padding: 18px;
+  }
+
+  /* Avatar in card */
   .avatar-wrapper {
     flex-direction: column;
     text-align: center;
-    gap: 16px;
+    gap: 14px;
   }
 
-  .avatar-ring {
-    width: 120px;
-    height: 120px;
+  .avatar-ring,
+  .luxury-fire-ring {
+    width: 110px;
+    height: 110px;
   }
 
   .avatar-tags {
@@ -2587,11 +2611,353 @@ main, header, footer, dialog, .toast-container, .back-to-top {
   .avatar-school {
     justify-content: center;
   }
+
+  /* Stats */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .stat-card {
+    padding: 16px 18px;
+    gap: 12px;
+  }
+
+  .stat-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 1.2rem;
+  }
+
+  .stat-number {
+    font-size: 1.5rem;
+  }
+
+  /* About */
+  .about-photo-frame {
+    height: 320px;
+    max-width: 100%;
+  }
+
+  .about-story {
+    padding: 24px 20px;
+  }
+
+  .about-pillars,
+  .about-pillars-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .about-details-list {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  /* Skills */
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .skill-category-card {
+    padding: 22px 18px;
+  }
+
+  /* Projects */
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .project-filters {
+    gap: 8px;
+  }
+
+  .filter-btn {
+    padding: 7px 16px;
+    font-size: 0.82rem;
+  }
+
+  /* Education Timeline */
+  .timeline-container {
+    padding-left: 28px;
+  }
+
+  .timeline-dot {
+    left: -28px;
+    width: 22px;
+    height: 22px;
+  }
+
+  .timeline-content {
+    padding: 20px 18px;
+  }
+
+  .timeline-header {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .timeline-badge {
+    align-self: flex-start;
+  }
+
+  /* Contact */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .contact-info-panel,
+  .contact-form-panel {
+    padding: 24px 20px;
+  }
+
+  /* Modal */
+  .project-modal {
+    width: 95%;
+  }
+
+  .modal-dialog {
+    padding: 20px 16px;
+    max-height: 92vh;
+  }
+
+  .modal-title {
+    font-size: 1.2rem;
+  }
+
+  .modal-details-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .modal-footer {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .modal-footer .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Footer */
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+
+  /* Music player */
+  .music-player-widget {
+    bottom: 14px;
+    left: 12px;
+  }
+
+  .music-card {
+    width: 295px;
+  }
+
+  /* Back to top tidak tabrakan dgn music player */
+  .back-to-top {
+    bottom: 14px;
+    right: 14px;
+    left: auto;
+  }
+
+  /* Preloader */
+  .preloader-card {
+    padding: 32px 20px;
+  }
 }
+
+/* ── Small Phones: ≤ 480px ────────────────────────── */
+@media (max-width: 480px) {
+  html {
+    font-size: 15px;
+  }
+
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* Navbar */
+  .brand-logo {
+    font-size: 1.15rem;
+  }
+
+  /* Hero */
+  .badge-status {
+    font-size: 0.75rem;
+    padding: 6px 14px;
+  }
+
+  .typewriter-container {
+    font-size: 0.92rem;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+  }
+
+  /* Stats: single column */
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Dev card code terminal */
+  .code-terminal {
+    font-size: 0.74rem;
+    padding: 12px;
+  }
+
+  .code-line {
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  /* Project cards */
+  .project-content {
+    padding: 18px 16px;
+  }
+
+  .project-title {
+    font-size: 1rem;
+  }
+
+  .project-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .project-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Section header */
+  .section-subtitle {
+    font-size: 0.92rem;
+  }
+
+  /* Music player - lebih kecil */
+  .music-pill {
+    padding: 6px 10px 6px 8px;
+    gap: 8px;
+  }
+
+  .music-pill-info {
+    min-width: 90px;
+    max-width: 110px;
+  }
+
+  .music-card {
+    width: 280px;
+  }
+
+  /* Preloader */
+  .preloader-brand {
+    font-size: 1.4rem;
+  }
+
+  /* Floating badges (hero): tetap hidden */
+  .floating-badge {
+    display: none;
+  }
+
+  /* Form inputs */
+  .form-input {
+    padding: 11px 14px 11px 40px;
+    font-size: 0.9rem;
+  }
+
+  /* Toast */
+  .toast {
+    min-width: 240px;
+    font-size: 0.84rem;
+  }
+
+  /* Section tag */
+  .section-tag {
+    font-size: 0.75rem;
+  }
+}
+
+/* ── Very Small Phones: ≤ 360px ───────────────────── */
+@media (max-width: 360px) {
+  .hero-cta-group .btn {
+    font-size: 0.85rem;
+    padding: 10px 18px;
+  }
+
+  .music-card {
+    width: 260px;
+  }
+
+  .music-pill-info {
+    max-width: 82px;
+  }
+
+  .navbar {
+    height: 58px;
+  }
+
+  .about-story {
+    padding: 20px 16px;
+  }
+
+  .timeline-container {
+    padding-left: 24px;
+  }
+
+  .timeline-dot {
+    left: -24px;
+    width: 20px;
+    height: 20px;
+    font-size: 0.65rem;
+  }
+
+  .filter-btn {
+    padding: 6px 12px;
+    font-size: 0.78rem;
+  }
+}
+
+/* ── Touch / Coarse Pointer enhancements ─────────── */
+@media (hover: none) and (pointer: coarse) {
+  /* Lebih besar touch target untuk semua button di HP */
+  .btn, .filter-btn, .music-ctrl-btn,
+  .music-pill-btn, .social-icon, .drawer-link {
+    min-height: 44px;
+  }
+
+  /* Hapus hover transform di touch device */
+  .project-card:hover {
+    transform: none;
+  }
+
+  .skill-pill:hover {
+    transform: none;
+  }
+
+  .social-icon:hover {
+    transform: none;
+  }
+}
+
 
 /* ==========================================================================
    14. SITE PRELOADER (INITIAL LOADING ANIMATION)
    ========================================================================== */
+
 .site-preloader {
   position: fixed;
   inset: 0;
@@ -3327,23 +3693,22 @@ main, header, footer, dialog, .toast-container, .back-to-top {
 
 .airplane-flight {
   position: absolute;
-  top: 18%;
-  left: -200px;
+  top: 22%;
+  left: 0;
   pointer-events: auto;
   cursor: pointer;
-  animation: airplaneFlightPath 18s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+  /* GPU-only: tidak ada left-animation, tidak ada rotate */
+  transform: translateX(-220px);
+  animation: airplaneSlide 26s linear infinite;
   will-change: transform;
 }
 
-@keyframes airplaneFlightPath {
-  0%   { left: -200px; top: 18%; transform: scaleX(1) rotate(-2deg); opacity: 0; }
-  5%   { opacity: 1; }
-  35%  { top: 22%; transform: scaleX(1) rotate(1deg); }
-  55%  { top: 14%; transform: scaleX(1) rotate(-3deg); }
-  75%  { top: 25%; transform: scaleX(1) rotate(2deg); }
+@keyframes airplaneSlide {
+  0%   { transform: translateX(-220px); opacity: 0; }
+  4%   { opacity: 1; }
   90%  { opacity: 1; }
-  95%  { left: calc(100% + 200px); top: 16%; opacity: 0; }
-  100% { left: calc(100% + 200px); top: 18%; opacity: 0; }
+  97%  { transform: translateX(calc(100vw + 220px)); opacity: 0; }
+  100% { transform: translateX(-220px); opacity: 0; }
 }
 
 .airplane-body-wrapper {
@@ -3353,9 +3718,9 @@ main, header, footer, dialog, .toast-container, .back-to-top {
 }
 
 .airplane-svg {
-  width: 140px;
-  height: 80px;
-  filter: drop-shadow(0 4px 20px rgba(0, 242, 254, 0.6));
+  width: 110px;
+  height: 63px;
+  filter: drop-shadow(0 3px 14px rgba(0, 242, 254, 0.55));
 }
 
 /* Jet Afterburner Glow Animation */
@@ -3387,34 +3752,33 @@ main, header, footer, dialog, .toast-container, .back-to-top {
   50%       { opacity: 0.15; filter: none; }
 }
 
-/* Contrail Trails */
+/* Contrail Trails — opacity-only animation, NO width animation */
 .airplane-contrail {
   position: absolute;
   top: 50%;
   right: 100%;
   height: 2px;
   border-radius: 2px;
-  background: linear-gradient(to left, rgba(255,255,255,0.7), transparent);
+  background: linear-gradient(to left, rgba(255,255,255,0.65), transparent);
   pointer-events: none;
+  animation: contrailOpacity 1.3s ease-in-out infinite alternate;
 }
 
 .contrail-left {
-  width: 120px;
-  margin-top: -8px;
-  animation: contrailFade 0.6s ease-out infinite;
+  width: 90px;
+  margin-top: -7px;
 }
 
 .contrail-right {
-  width: 100px;
-  margin-top: 6px;
-  animation: contrailFade 0.6s ease-out infinite 0.15s;
-  opacity: 0.7;
+  width: 70px;
+  margin-top: 5px;
+  animation-delay: 0.2s;
+  opacity: 0.6;
 }
 
-@keyframes contrailFade {
-  0%   { width: 0px; opacity: 0.9; }
-  50%  { width: 120px; opacity: 0.7; }
-  100% { width: 160px; opacity: 0; }
+@keyframes contrailOpacity {
+  0%   { opacity: 0.85; }
+  100% { opacity: 0.15; }
 }
 
 /* Click-to-relaunch airplane effect */
